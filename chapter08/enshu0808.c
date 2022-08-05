@@ -20,15 +20,6 @@ int gcd(int x, int y) {
     int longer = max(x,y);
     int shorter = min(x,y);
 
-    
-    /*shorter = get_diff(longer,shorter);
-
-    do{
-        int tmp_longer = longer;
-        longer = shorter;
-        shorter = get_diff(tmp_longer,shorter);
-    }while(longer > shorter);*/
-
     while(longer != shorter){
         int tmp = longer;
         longer = shorter;
