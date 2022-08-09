@@ -6,6 +6,7 @@ void put_stringr(char s[]) {
     while (s[counter]) {
         counter++;
     }
+    printf("end while %d\n",counter);
     counter--; 
     /*
       上のwhileぶんで、counter++を繰り返した結果、s[counter]には'\0'が格納されている。
@@ -14,20 +15,26 @@ void put_stringr(char s[]) {
 
     int i=0,j=0;
     for (i=0; i<=counter; i++){
-        while (j < counter-1){
-            printf("i:%d , counter:%d , string: %s\n",i,counter,s);
+        while (j < counter-1 | (counter-1) == 1 ==j){
+            /*
+                j < counter とすると、文字を前後の文字を入れ替える処理の最後に、ナル文字も入れ替えてしまう。
+                その結果、文字数がループごとに少なくなってしまって良くないので、ナル文字を入れ替えないようにcounter-1。
+
+                counterが２になった時は一番左の文字と一番左から２番目の文字を入れ替えたい（処理A）が、j<counter-1
+                の式で、 1<2-1 となり、whileの条件が0になるため、処理Aが行われない。
+                従って、処理Aが行われるように、特別に(counter-1)==1==jという条件を足した。
+
+                ここは、コメントを書かなくてもコードの意味が分かるようにかけた方がいいかもしれない。
+            */
             char tmp = s[j];
             s[j] = s[j+1];
             s[j+1] = tmp;
             j++;        
+            printf("i:%d, j:%d , counter:%d , string: %s\n",i,j,counter,s);
         }
         j = 0;
         counter--;
     }
-
-    char tmp = s[0];
-    s[0] = s[1];
-    s[1] = tmp;
 }
 
 int main(void){
@@ -35,8 +42,3 @@ int main(void){
     put_stringr(s);
     printf("s : %s\n",s);
 }
-
-/*
-   全体的に処理が読みにくい。
-   forループを抜けた後で、同じ処理を28~30行目で別立てで書いているのも、趣旨や意図が分かりズラく、のちに読む時に分かりにくくなりそう。
-*/
