@@ -17,11 +17,12 @@ int get_string(char s[5][128]) {
     return i;
 }
 
-void main(void){
+int main(void){
     char s[5][128];
     int n = get_string(s);
     
     for (int i=0; i<n; i++){
         printf("%d個目に入力した値 : %s\n",i+1,s[i]);
     }
+    return 0;
 }
