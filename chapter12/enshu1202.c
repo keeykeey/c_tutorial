@@ -22,4 +22,6 @@ int main(void){
     printf("height : %d\n",sanaka.height);
     printf("weght : %.2f\n",sanaka.weight);
     printf("schols :%ld\n",sanaka.schols);
+
+    return 0;
 }
