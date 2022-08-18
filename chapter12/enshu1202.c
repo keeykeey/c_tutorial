@@ -9,11 +9,6 @@ typedef struct student {
     long schols;
 } Student;
 
-void hiroko(Student *std){
-    if (std->height < 189) std->height = 180;
-    if (std->weight > 80) std->weight = 80;
-}
-
 int main(void){
     Student sanaka;
     printf("name ? : "); scanf("%s",sanaka.name);
