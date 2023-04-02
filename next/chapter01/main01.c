@@ -10,10 +10,10 @@ int get_number() {
 }
 
 bool is_prime_number(int d) {
-    int d2 = d - 1;
+    int d2 = 2;
     while(d%d2) {
-       d2--; 
-       if (d2==1) {
+       d2++; 
+       if (d2==(d-1)) {
          return true;
        }
     }
