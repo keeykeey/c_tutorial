@@ -54,6 +54,7 @@ void disp_result(int result)
         case 1: puts("Lose"); break;
         case 2: puts("Win"); break;
         case 3: puts("Draw"); break;
+        case 4: puts("Win"); break;
     }
 }
 
